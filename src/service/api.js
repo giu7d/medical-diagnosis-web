@@ -18,6 +18,14 @@ export const postAnswer = async (accountId, questionId, answer) => {
   })
 }
 
+export const postAccount = async name => {
+  const { data } = await API.post('/v1/person', {
+    name
+  })
+
+  return data
+}
+
 const _resolveDateTime = () => {
   const date = new Date()
 

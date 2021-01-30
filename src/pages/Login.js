@@ -1,10 +1,13 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import styled from 'styled-components'
 import { GlassCard } from '../components/fragments/Cards/Glass'
 import { Typography } from '../components/fragments/Typography'
 import { Input } from '../components/fragments/Input'
 import { Button } from '../components/fragments/Button'
 import { rgba } from 'polished'
+import { postAccount } from '../service/api'
+import { StoreContext } from '../redux/store'
+import { setAccountId } from '../redux/action'
 
 const Wrapper = styled.section`
   display: flex;
@@ -27,9 +30,16 @@ const Wrapper = styled.section`
   }
 `
 export const Login = () => {
+  const { dispatch } = useContext(StoreContext)
   const [input, setInput] = useState('')
 
-  const onSubmit = () => {}
+  const onSubmit = async () => {
+    const data = await postAccount(input)
+
+    if (!data) return console.log('error')
+
+    dispatch(setAccountId(data.values[0].id))
+  }
 
   return (
     <Wrapper>

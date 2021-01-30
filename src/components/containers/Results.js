@@ -14,7 +14,7 @@ export const Results = () => {
     mutate()
   }, [state.questionCount])
 
-  if (isError || isLoading || data.length === 0) {
+  if (isError || isLoading || data.length === 0 || state.questionCount < 5) {
     console.log(isError)
     return null
   }

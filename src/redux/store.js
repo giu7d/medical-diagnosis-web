@@ -3,7 +3,7 @@ import { reducer } from './reducer'
 
 export const initialState = {
   accountId: undefined,
-  questionCount: 0
+  questionCount: 1
 }
 
 export const StoreContext = createContext({
