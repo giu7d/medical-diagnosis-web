@@ -26,6 +26,7 @@ export const Diagnosis = () => {
   const { state } = useContext(StoreContext)
   return (
     <Wrapper>
+      {console.log(state)}
       <Greetings fullName={state.accountName} />
       <Question />
       <Results />

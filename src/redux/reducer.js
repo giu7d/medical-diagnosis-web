@@ -9,6 +9,12 @@ export const reducer = (state, action) => {
         accountId: action.payload
       }
 
+    case ActionTypes.SET_ACCOUNT_NAME:
+      return {
+        ...state,
+        accountName: action.payload
+      }
+
     case ActionTypes.SET_QUESTION_COUNT:
       return {
         ...state,
