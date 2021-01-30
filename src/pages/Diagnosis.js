@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
 import { Question } from '../components/containers/Question'
 import { Results } from '../components/containers/Results'
 import { Greetings } from '../components/fragments/Greetings'
+import { StoreContext } from '../redux/store'
 
 const Wrapper = styled.main`
   display: grid;
@@ -19,19 +20,13 @@ const Wrapper = styled.main`
   grid-template-areas:
     'header card'
     'question card';
-  /*
-  @media screen and (max-width: 950px) {
-    padding: 48px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  } */
 `
 
 export const Diagnosis = () => {
+  const { state } = useContext(StoreContext)
   return (
     <Wrapper>
-      <Greetings fullName="Giuseppe Setem" />
+      <Greetings fullName={state.accountName} />
       <Question />
       <Results />
     </Wrapper>

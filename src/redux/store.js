@@ -3,6 +3,7 @@ import { reducer } from './reducer'
 
 export const initialState = {
   accountId: undefined,
+  accountName: '',
   questionCount: 1
 }
 

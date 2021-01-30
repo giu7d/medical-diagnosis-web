@@ -7,7 +7,7 @@ import { Button } from '../components/fragments/Button'
 import { rgba } from 'polished'
 import { postAccount } from '../service/api'
 import { StoreContext } from '../redux/store'
-import { setAccountId } from '../redux/action'
+import { setAccountId, setAccountName } from '../redux/action'
 
 const Wrapper = styled.section`
   display: flex;
@@ -39,6 +39,7 @@ export const Login = () => {
     if (!data) return console.log('error')
 
     dispatch(setAccountId(data.values[0].id))
+    dispatch(setAccountName(data.values[0].name))
   }
 
   return (
