@@ -19,6 +19,13 @@ const Wrapper = styled.main`
   grid-template-areas:
     'header card'
     'question card';
+  /*
+  @media screen and (max-width: 950px) {
+    padding: 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  } */
 `
 
 export const Diagnosis = () => {

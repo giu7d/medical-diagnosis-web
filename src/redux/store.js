@@ -2,7 +2,8 @@ import React, { createContext, useReducer } from 'react'
 import { reducer } from './reducer'
 
 export const initialState = {
-  accountId: 437
+  accountId: 499,
+  questionCount: 0
 }
 
 export const StoreContext = createContext({

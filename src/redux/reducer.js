@@ -9,6 +9,12 @@ export const reducer = (state, action) => {
         accountId: action.payload
       }
 
+    case ActionTypes.SET_QUESTION_COUNT:
+      return {
+        ...state,
+        questionCount: action.payload
+      }
+
     case ActionTypes.RESET:
       return {
         ...initialState
