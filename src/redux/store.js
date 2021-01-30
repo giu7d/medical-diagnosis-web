@@ -2,7 +2,7 @@ import React, { createContext, useReducer } from 'react'
 import { reducer } from './reducer'
 
 export const initialState = {
-  accountId: 499,
+  accountId: undefined,
   questionCount: 0
 }
 

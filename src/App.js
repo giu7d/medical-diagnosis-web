@@ -2,10 +2,10 @@ import React from 'react'
 import { ThemeProvider } from 'styled-components'
 import { GlobalStyle } from './styles/global'
 import { Theme } from './styles/theme'
-import { Diagnosis } from './pages/Diagnosis'
 import { Background } from './components/fragments/Background'
 import BackgroundSVG from './assets/bg.svg'
 import { StoreProvider } from './redux/store'
+import { Router } from './router'
 
 export const App = () => {
   return (
@@ -15,7 +15,7 @@ export const App = () => {
         <Background>
           <img src={BackgroundSVG} />
         </Background>
-        <Diagnosis />
+        <Router />
       </ThemeProvider>
     </StoreProvider>
   )
