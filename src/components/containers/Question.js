@@ -5,13 +5,14 @@ import { Question as QuestionWrapper } from '../fragments/Questions'
 import { QuestionNumber } from '../fragments/Questions/Number'
 import { Typography } from '../fragments/Typography'
 import { StoreContext } from '../../redux/store'
+import { setQuestionCount } from '../../redux/action'
 import { useQuestion } from '../../hooks/useQuestion'
 import { useTheme } from 'styled-components'
 import { rgba } from 'polished'
 import { postAnswer } from '../../service/api'
 
 export const Question = () => {
-  const { state } = useContext(StoreContext)
+  const { state, dispatch } = useContext(StoreContext)
   const { data, isError, isLoading, mutate } = useQuestion(state.accountId)
   const [answer, setAnswer] = useState(0)
   const theme = useTheme()
@@ -44,6 +45,8 @@ export const Question = () => {
 
     await postAnswer(state.accountId, data.question_id, normalizedValue)
     await mutate()
+
+    dispatch(setQuestionCount(state.questionCount + 1))
     setAnswer(0)
   }
 
